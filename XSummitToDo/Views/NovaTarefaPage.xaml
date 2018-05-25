@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="XSummitToDo.Views.NovaTarefaPage"
+             xmlns:c="clr-namespace:XSummitToDo.Converters;assembly=XSummitToDo"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:flex="clr-namespace:Flex.Controls;assembly=Flex"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" Padding="0,20,0,0" Title="Nova Tarefa">
+
+     <ContentPage.ToolbarItems>
+        <ToolbarItem Name="btnOK" Order="Primary"  Text="OK" Priority="0" Command="{Binding OKCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+          
+        <StackLayout>
+            <Label Text="Tarefa:"></Label>
+           <Entry 
+                  Placeholder="Tarefa" 
+                  Text="{Binding Tarefa.Titulo}"  
+                  FontSize="17"  
+                  Margin="0, 0, 0, 0"/>
+
+             <Label Text="Descrição:"></Label>
+                
+                    <Editor 
+                    HeightRequest = "200" 
+                    Text="{Binding Tarefa.Descricao}">
+                        <Editor.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color"
+                            iOS="#fcf7f7"
+                            Android="#fcf7f7"
+                            WinPhone="#2c3e50" />
+                        </Editor.BackgroundColor>
+                    </Editor>
+
+
+            <Label Text="Proteger esta tarefa:"></Label>
+            <Switch IsToggled="{Binding Tarefa.Protegida}" Margin="0,20,0,0"/>
+                
+
+            <flex:FlexButton
+                ClickedCommand="{Binding LembrarCommand}"
+                HorizontalOptions="Center"
+               WidthRequest="300"
+                HeightRequest="76"
+                CornerRadius="20"
+                FontSize="18"
+                Margin="0, 10" 
+                Icon="lembrete.png"
+                Text="Lembrar-me"
+                ForegroundColor="#ffffff"
+                HighlightForegroundColor="#49516F"
+                BackgroundColor="#1976D2"
+                HighlightBackgroundColor="#8EA4D2"/>
+
+            <flex:FlexButton
+              ClickedCommand="{Binding AdicionarFotoCommand}"
+              HorizontalOptions="Center"
+              WidthRequest="300"
+              HeightRequest="76"
+              CornerRadius="20"
+              FontSize="18"
+              Margin="0, 10"
+              Icon="anexo.png"
+              Text="Anexar foto"
+              ForegroundColor="#ffffff"
+              HighlightForegroundColor="#49516F"
+              BackgroundColor="#1976D2"
+              HighlightBackgroundColor="#8EA4D2"/>
+
+
+
+        </StackLayout>
+
+              </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:XSummitToDo" 
+             xmlns:c="clr-namespace:XSummitToDo.Converters;assembly=XSummitToDo"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:fab="clr-namespace:FAB.Forms;assembly=FAB.Forms"
+             xmlns:lv="clr-namespace:Xamarin.Forms.MultiSelectListView;assembly=Xamarin.Forms.MultiSelectListView" 
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Tarefas" x:Name="MainPage"
+             x:Class="XSummitToDo.Views.MainPage" BackgroundColor="#0053B1">
+
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <RelativeLayout>  
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">  
+            
+             <ListView x:Name="lvwTarefas" 
+            HasUnevenRows="true"
+            SeparatorVisibility="Default" 
+            lv:MultiSelect.Enable="true"
+            ItemsSource="{Binding Tarefas, Mode=TwoWay}"
+            CachingStrategy="RecycleElement" >
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                
+                <lv:SelectableCell x:Name="SelectableCell">
+
+                         <lv:SelectableCell.CheckView>
+                            <Image Source="selecionado.png" WidthRequest="30" HeightRequest="30"></Image>
+                        </lv:SelectableCell.CheckView>
+
+                      <lv:SelectableCell.DataView>
+                                
+                      <StackLayout Orientation="Vertical" Padding="0,0,0,0">
+                                <Grid Padding="20,0,20,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                              
+                            </Grid.ColumnDefinitions>
+
+
+                            <Label Text="{Binding Titulo}"  FontSize="16" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Margin="0, 15, 0, 0"/>
+                            <Image IsVisible="{Binding Protegida}" HeightRequest="3" WidthRequest="3" Source="bloqueado.png" Grid.RowSpan ="2" Grid.Row="0" Grid.Column="2"/>
+                                    
+                            <Label Text="{Binding Descricao}"  FontSize="14" Grid.Row="1" Grid.Column="0" Margin="0, 8, 0, 0" Grid.ColumnSpan="2"/>
+                           
+                        </Grid>
+                  </StackLayout>
+                     </lv:SelectableCell.DataView>
+
+                  <lv:SelectableCell.ContextActions>
+                       <MenuItem Text="Mais"  CommandParameter="{Binding Source={x:Reference SelectableCell}, Path=BindingContext}" 
+                                BindingContext="{Binding Source={x:Reference MainPage}, Path=BindingContext}" Command="{Binding AlterarCommand}"/>
+                        
+                       <MenuItem Text="Apagar" IsDestructive="True" CommandParameter="{Binding Source={x:Reference SelectableCell}, Path=BindingContext}" 
+                                BindingContext="{Binding Source={x:Reference MainPage}, Path=BindingContext}" Command="{Binding ApagarCommand}"/>
+                  </lv:SelectableCell.ContextActions>
+                            
+                </lv:SelectableCell>
+                
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+        <ListView.Behaviors>
+                <b:EventToCommandBehavior EventName="ItemTapped" 
+                                          Command="{Binding ItemTappedCommand}"
+                                          EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
+            </ListView.Behaviors>
+        </ListView> 
+
+
+            </ContentView>  
+            <fab:FloatingActionButton  
+                x:Name="fabBtnIncluir"  
+                Source="plus.png"
+                Size="Normal"
+                NormalColor="#1976D2"
+                RippleColor="Red"
+                HasShadow="True"  
+                IsVisible = "{Binding IncluirTarefa}"
+                Command="{Binding AdicionarTarefaCommand}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}" />  
+        
+         <fab:FloatingActionButton  
+                x:Name="fabBtnFinalizar"  
+                Source="finalizar.png"
+                Size="Normal"
+                NormalColor="Green"
+                RippleColor="Red"
+                HasShadow="True"  
+                IsVisible = "{Binding FinalizarTarefa}"
+                Command="{Binding FinalizarTarefaCommand}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}" />  
+        </RelativeLayout>  
+
+    
+</ContentPage>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+               xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+             x:Class="XSummitToDo.App">
+    <Application.Resources>
+
+        <ResourceDictionary>
+
+<!--     <OnPlatform x:TypeArguments="Color" Android="White" iOS="#E50B18" WinPhone="#E50B18"
+            x:Key="NintendoBackGroundColor" />-->
+
+      <Style TargetType="NavigationPage">
+        <Setter Property="BarBackgroundColor" Value="#0053B1" />
+        <Setter Property="BarTextColor" Value="White" />
+      </Style>
+
+<!--     <Style TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{StaticResource NintendoBackGroundColor}" />
+      </Style>-->
+    
+    </ResourceDictionary>
+        
+    </Application.Resources>
+</prism:PrismApplication>

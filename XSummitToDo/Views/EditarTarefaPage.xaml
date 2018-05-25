@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="XSummitToDo.Views.EditarTarefaPage"
+             xmlns:c="clr-namespace:XSummitToDo.Converters;assembly=XSummitToDo"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:flex="clr-namespace:Flex.Controls;assembly=Flex"
+              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" Padding="0,20,0,0" Title="Editar Tarefa">
+
+      <ContentPage.Resources>
+        <ResourceDictionary>
+            <c:ImageFromByteArrayConverter x:Key="imageFileCvt" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+      <ContentPage.ToolbarItems>
+        <ToolbarItem Name="btnOK" Order="Primary"  Text="OK" Priority="0" Command="{Binding OKCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+          
+        <StackLayout>
+            <Label Text="Tarefa:"></Label>
+                
+                 <Entry 
+                  Placeholder="Tarefa" 
+                  Text="{Binding Tarefa.Titulo}"  
+                  FontSize="17"  
+                  Margin="0, 0, 0, 0"/>
+
+             <Label Text="Descrição:"></Label>
+                
+                    <Editor 
+                    HeightRequest = "200" 
+                    Text="{Binding Tarefa.Descricao}">
+                        <Editor.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color"
+                            iOS="#fcf7f7"
+                            Android="#fcf7f7"
+                            WinPhone="#2c3e50" />
+                        </Editor.BackgroundColor>
+                    </Editor>
+
+            <Label Text="Anexo:"></Label>
+              <ffimageloading:CachedImage  
+                                DownsampleToViewSize="true"
+                                Source="{Binding Tarefa.Anexo, Converter={StaticResource imageFileCvt}}"
+                                HeightRequest="300" WidthRequest="300" 
+                                LoadingPlaceholder="nocover.jpg"
+                                CacheDuration="7">
+                             </ffimageloading:CachedImage>
+                
+
+        </StackLayout>
+
+              </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
