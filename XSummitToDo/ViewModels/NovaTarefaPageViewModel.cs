@@ -119,37 +119,44 @@ namespace XSummitToDo.ViewModels
         {
             string titulo = Tarefa.Titulo;
 
-            bool lembrete = (!string.IsNullOrEmpty(_Lembrete) && _Lembrete != "Cancelar");
-
-            Tarefa.Agendada = lembrete;
-            _transaction.Commit();
-
-            if (lembrete)
+            if (titulo?.Length > 0)
             {
-                DateTime notificacao = DateTime.Now;
-                switch (_Lembrete)
+                bool lembrete = (!string.IsNullOrEmpty(_Lembrete) && _Lembrete != "Cancelar");
+
+                Tarefa.Agendada = lembrete;
+                _transaction.Commit();
+
+                if (lembrete)
                 {
-                    case "10 Segundos":
-                        notificacao = DateTime.Now.AddSeconds(10);
-                        break;
-                    case "30 Minutos":
-                        notificacao = DateTime.Now.AddMinutes(30);
-                        break;
-                    case "1 Hora":
-                        notificacao = DateTime.Now.AddHours(1);
-                        break;
-                    case "Amanha":
-                        notificacao = DateTime.Now.AddDays(1);
-                        break;
-                    default:
-                        break;
+                    DateTime notificacao = DateTime.Now;
+                    switch (_Lembrete)
+                    {
+                        case "10 Segundos":
+                            notificacao = DateTime.Now.AddSeconds(10);
+                            break;
+                        case "30 Minutos":
+                            notificacao = DateTime.Now.AddMinutes(30);
+                            break;
+                        case "1 Hora":
+                            notificacao = DateTime.Now.AddHours(1);
+                            break;
+                        case "Amanha":
+                            notificacao = DateTime.Now.AddDays(1);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    var id = _realm.All<Tarefa>().ToList().Count() + 1;
+                    CrossLocalNotifications.Current.Show("Lembrete", titulo, id, notificacao);
                 }
 
-                var id = _realm.All<Tarefa>().ToList().Count() + 1;
-                CrossLocalNotifications.Current.Show("Lembrete", titulo, id, notificacao);
+                _navigationService.GoBackAsync();
             }
-
-            _navigationService.GoBackAsync();
+            else
+            {
+                UserDialogs.Instance.Toast("O Titulo é obrigatório", TimeSpan.FromSeconds(5));
+            }
         }
     }
 }
