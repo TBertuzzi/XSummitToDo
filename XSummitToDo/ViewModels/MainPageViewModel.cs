@@ -100,6 +100,8 @@ namespace XSummitToDo.ViewModels
                 UserDialogs.Instance.Toast("Tarefas concluidas", TimeSpan.FromSeconds(5));
                 CarregarTarefas();
             }
+
+            IncluirTarefa = true;
         }
 
 
