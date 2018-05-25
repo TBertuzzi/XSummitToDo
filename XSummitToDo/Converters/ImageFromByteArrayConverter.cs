@@ -8,6 +8,9 @@ namespace XSummitToDo.Converters
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
+            if (value == null)
+                return null;
+            
             byte[] bytes = (byte[])value;
             Stream stream = new MemoryStream(bytes);
 
