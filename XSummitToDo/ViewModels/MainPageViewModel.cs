@@ -149,6 +149,8 @@ namespace XSummitToDo.ViewModels
                 transaction.Commit();
             }
 
+            IncluirTarefa = true;
+            FinalizarTarefa = false;
             CarregarTarefas();
         }
 
