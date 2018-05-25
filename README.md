@@ -21,7 +21,7 @@ Para saber mais sobre o Realm : https://medium.com/@bertuzzi/realm-com-xamarin-f
 |FFImageLoading|[Medium](https://medium.com/@bertuzzi/meu-plugin-minha-vida-ffimageloading-9a03f1e7cd52)|
 |MultiSelect Listview|[Medium](https://medium.com/@bertuzzi/o-x-do-xamarin-forms-multi-select-listview-6e59c020d534)|
 
-A pasta apresentacao comtem o .pptx.
+A pasta apresentacao contem o .pptx.
 
 Espero que tenham gostado :D
 
