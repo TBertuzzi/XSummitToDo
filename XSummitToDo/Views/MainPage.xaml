@@ -14,6 +14,7 @@
      <ContentPage.Resources>
         <ResourceDictionary>
             <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+            <c:NegateBooleanConverter x:Key="negateBooleanConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -102,7 +103,7 @@
                 NormalColor="Green"
                 RippleColor="Red"
                 HasShadow="True"  
-                IsVisible = "{Binding FinalizarTarefa}"
+                IsVisible = "{Binding IncluirTarefa, Converter={StaticResource negateBooleanConverter}}"
                 Command="{Binding FinalizarTarefaCommand}"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"  
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}" />  

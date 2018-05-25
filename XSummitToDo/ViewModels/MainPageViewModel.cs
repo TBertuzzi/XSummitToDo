@@ -21,13 +21,6 @@ namespace XSummitToDo.ViewModels
         public MultiSelectObservableCollection<Tarefa> Tarefas { get; set; }
         private readonly Realm _realm;
 
-        private bool finalizarTarefa;
-        public bool FinalizarTarefa
-        {
-            get => finalizarTarefa;
-            set => SetProperty(ref finalizarTarefa, value);
-        }
-
         private bool incluirTarefa;
         public bool IncluirTarefa
         {
@@ -63,7 +56,6 @@ namespace XSummitToDo.ViewModels
                 ShouldDeleteIfMigrationNeeded = true
             });
 
-            FinalizarTarefa = false;
             IncluirTarefa = true;
         }
 
@@ -150,7 +142,6 @@ namespace XSummitToDo.ViewModels
             }
 
             IncluirTarefa = true;
-            FinalizarTarefa = false;
             CarregarTarefas();
         }
 
@@ -170,16 +161,7 @@ namespace XSummitToDo.ViewModels
 
         private void ItemTappedCommandExecute(SelectableItem selectableItem)
         {
-            if(Tarefas.SelectedItems.Count() > 0)
-            {
-                IncluirTarefa = false;
-                FinalizarTarefa = true;
-            }
-            else
-            {
-                IncluirTarefa = true;
-                FinalizarTarefa = false;
-            }
+            IncluirTarefa = Tarefas.SelectedItems.Count() == 0;
         }
     }
 }

@@ -48,7 +48,7 @@
               <ffimageloading:CachedImage  
                                 DownsampleToViewSize="true"
                                 Source="{Binding Tarefa.Anexo, Converter={StaticResource imageFileCvt}}"
-                                HeightRequest="300" WidthRequest="300" 
+                                HeightRequest="250" WidthRequest="250" 
                                 LoadingPlaceholder="nocover.jpg"
                                 CacheDuration="7">
                              </ffimageloading:CachedImage>
