@@ -14,7 +14,7 @@ Para saber mais sobre o Realm : https://medium.com/@bertuzzi/realm-com-xamarin-f
 |Plugin/Controle |Como Utilizar|
 | ------------------- | :------------------: |
 |ACR User Dialogs|[Medium](https://medium.com/@bertuzzi/meu-plugin-minha-vida-toast-load-dialogs-baf96b51ade7)|
-|Floating Action Button|[Github](https://github.com/kpalosaa/Xamarin.Plugin.FAB)|
+|Floating Action Button|[Medium](https://medium.com/@bertuzzi/o-x-do-xamarin-forms-floating-action-button-o-bot%C3%A3o-flutuante-ee054b69424)|
 |Flex Button|[Medium](https://medium.com/@bertuzzi/o-x-do-xamarin-forms-bot%C3%A3o-flex-296e414500c6)|
 |Media Plugin|[Github](https://github.com/jamesmontemagno/MediaPlugin)|
 |Local Notifications Plugin|[Medium](https://medium.com/@bertuzzi/meu-plugin-minha-vida-notifica%C3%A7%C3%B5es-locais-a4bcd9fa1594)|
