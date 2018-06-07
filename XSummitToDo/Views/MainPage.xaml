@@ -54,7 +54,7 @@
 
 
                             <Label Text="{Binding Titulo}"  FontSize="16" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Margin="0, 15, 0, 0"/>
-                            <Image IsVisible="{Binding Protegida}" HeightRequest="3" WidthRequest="3" Source="bloqueado.png" Grid.RowSpan ="2" Grid.Row="0" Grid.Column="2"/>
+                            <Image IsVisible="{Binding Protegida}" HeightRequest="18" WidthRequest="18"  Source="bloqueado.png" Grid.Row="0" Grid.Column="2"/>
                                     
                             <Label Text="{Binding Descricao}"  FontSize="14" Grid.Row="1" Grid.Column="0" Margin="0, 8, 0, 0" Grid.ColumnSpan="2"/>
                            
