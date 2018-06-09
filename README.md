@@ -22,6 +22,7 @@ Para saber mais sobre o Realm : https://medium.com/@bertuzzi/realm-com-xamarin-f
 |MultiSelect Listview|[Medium](https://medium.com/@bertuzzi/o-x-do-xamarin-forms-multi-select-listview-6e59c020d534)|
 
 A pasta apresentacao contem o .pptx.
+Pode acessar a apresentação tambem atraves do link : https://pt.slideshare.net/ThiagoBertuzzi/bertuzzi-xamarin-summit-2018
 
 Espero que tenham gostado :D
 
