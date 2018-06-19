@@ -86,9 +86,6 @@
     <PackageReference Include="Prism.DryIoc.Forms">
       <Version>7.0.0.396</Version>
     </PackageReference>
-    <PackageReference Include="FAB.Forms">
-      <Version>2.1.1</Version>
-    </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>4.0.0.9</Version>
     </PackageReference>
@@ -97,6 +94,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>3.0.0.482510</Version>
+    </PackageReference>
+    <PackageReference Include="SuaveControls.FloatingActionButton">
+      <Version>2018.1.5</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +136,7 @@
     <AndroidResource Include="Resources\drawable\bloqueado.png" />
     <AndroidResource Include="Resources\drawable\selecionado.png" />
     <AndroidResource Include="Resources\drawable\finalizar.png" />
+    <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -143,6 +144,7 @@
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
+    <Folder Include="Resources\xml\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XSummitToDo\XSummitToDo.csproj">

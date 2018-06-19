@@ -5,7 +5,7 @@
              xmlns:c="clr-namespace:XSummitToDo.Converters;assembly=XSummitToDo"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
-             xmlns:fab="clr-namespace:FAB.Forms;assembly=FAB.Forms"
+             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              xmlns:lv="clr-namespace:Xamarin.Forms.MultiSelectListView;assembly=Xamarin.Forms.MultiSelectListView" 
              prism:ViewModelLocator.AutowireViewModel="True"
              Title="Tarefas" x:Name="MainPage"
@@ -27,6 +27,7 @@
             SeparatorVisibility="Default" 
             lv:MultiSelect.Enable="true"
             ItemsSource="{Binding Tarefas, Mode=TwoWay}"
+           BackgroundColor="White"
             CachingStrategy="RecycleElement" >
 
         <ListView.ItemTemplate>
@@ -84,29 +85,28 @@
 
 
             </ContentView>  
-            <fab:FloatingActionButton  
-                x:Name="fabBtnIncluir"  
-                Source="plus.png"
-                Size="Normal"
-                NormalColor="#1976D2"
-                RippleColor="Red"
-                HasShadow="True"  
-                IsVisible = "{Binding IncluirTarefa}"
-                Command="{Binding AdicionarTarefaCommand}"
-                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"  
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}" />  
-        
-         <fab:FloatingActionButton  
-                x:Name="fabBtnFinalizar"  
-                Source="finalizar.png"
-                Size="Normal"
-                NormalColor="Green"
-                RippleColor="Red"
-                HasShadow="True"  
-                IsVisible = "{Binding IncluirTarefa, Converter={StaticResource negateBooleanConverter}}"
-                Command="{Binding FinalizarTarefaCommand}"
-                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"  
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}" />  
+
+
+         <controls:FloatingActionButton x:Name="fabBtnIncluir" HorizontalOptions="CenterAndExpand" 
+                                        VerticalOptions="CenterAndExpand" 
+                                       Command="{Binding AdicionarTarefaCommand}"
+                                       IsVisible = "{Binding IncluirTarefa}"
+                                       Image="plus.png" ButtonColor="#1976D2"
+                                       
+        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"  
+        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}" /> 
+
+         <controls:FloatingActionButton x:Name="fabBtnFinalizar" HorizontalOptions="CenterAndExpand" 
+                                        VerticalOptions="CenterAndExpand" 
+                                       Command="{Binding FinalizarTarefaCommand}"
+                                       IsVisible = "{Binding IncluirTarefa, Converter={StaticResource negateBooleanConverter}}"
+                                       Image="finalizar.png" ButtonColor="Green"
+                                       
+        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"  
+        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}" /> 
+
+
+       
         </RelativeLayout>  
 
     

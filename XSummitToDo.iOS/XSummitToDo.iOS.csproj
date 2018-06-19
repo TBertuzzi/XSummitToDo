@@ -178,9 +178,6 @@
     <PackageReference Include="Prism.DryIoc.Forms">
       <Version>7.0.0.396</Version>
     </PackageReference>
-    <PackageReference Include="FAB.Forms">
-      <Version>2.1.1</Version>
-    </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>4.0.0.9</Version>
     </PackageReference>
@@ -189,6 +186,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>3.0.0.482510</Version>
+    </PackageReference>
+    <PackageReference Include="SuaveControls.FloatingActionButton">
+      <Version>2018.1.5</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -199,7 +199,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\plus.png" />
     <BundleResource Include="Resources\foto.png" />
     <BundleResource Include="Resources\anexo.png" />
     <BundleResource Include="Resources\lembrete.png" />
@@ -207,5 +206,6 @@
     <BundleResource Include="Resources\bloqueado.png" />
     <BundleResource Include="Resources\selecionado.png" />
     <BundleResource Include="Resources\finalizar.png" />
+    <BundleResource Include="Resources\plus.png" />
   </ItemGroup>
 </Project>

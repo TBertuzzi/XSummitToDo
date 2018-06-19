@@ -8,6 +8,7 @@ using Prism;
 using Prism.Ioc;
 using UserNotifications;
 using Flex;
+using SuaveControls.FloatingActionButton.iOS.Renderers;
 
 namespace XSummitToDo.iOS
 {
@@ -48,7 +49,7 @@ namespace XSummitToDo.iOS
             global::Xamarin.Forms.Forms.Init();
 
             CachedImageRenderer.Init();
-            FAB.iOS.FloatingActionButtonRenderer.InitControl();
+            FloatingActionButtonRenderer.InitRenderer();
             FlexButton.Init();
 
             LoadApplication(new App(new iOSInitializer()));

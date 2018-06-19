@@ -28,7 +28,6 @@ namespace XSummitToDo.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            FAB.Droid.FloatingActionButtonRenderer.InitControl();
             CrossCurrentActivity.Current.Init(this, bundle);
             CachedImageRenderer.Init(false);
             UserDialogs.Init(this);
